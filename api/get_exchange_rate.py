@@ -51,7 +51,7 @@ def get_exchange_rate_real(exchangetype=None):
         exchangetype = 'CNYJPY'
     url = f'https://finance.pae.baidu.com:443/vapi/v1/getquotation?group=huilv_minute&need_reverse_real=1&code={exchangetype}&finClientType=pc'
     resp = requests.options(url=url, headers=hearder)
-    print(resp.text)
+    # print(resp.text)
     try:
         prices = {item['name']: item['value'] for item in resp.json()['Result']['pankouinfos']['list']}
         print(f'今天{exchangetype}汇率为：{prices}') # {'今开': '0.6122', '最高': '0.6130', '买入价': '0.6069', '昨收': '0.6129', '最低': '0.6069', '卖出价': '0.6084'}
